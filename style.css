@@ -1,0 +1,12 @@
+body {
+	display: inline;
+}
+a {
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+img {
+	margin-bottom: 20px;
+}

@@ -17,15 +17,21 @@ fetch(`https://api.github.com/users/${getNameFromUrl(url)}`)
         let avatar = new Image();
         avatar.src = json.avatar_url;
         body.append(avatar);
-        
-        let name = document.createElement('h3');
+
+        let br = document.createElement('br');
+        body.append(br);
+
+        let name = document.createElement('a');
         if (json.name != null) {
             name.innerHTML = json.name;
         } else {
             name.innerHTML = 'Пользователь не найден';
         }
         body.append(name);
-        name.addEventListener("click", () => window.location = 'https://github.com/WebHeroSchool/newZhanRep');
+        // name.addEventListener("click", () => window.location = 'https://github.com/?username=${getNameFromUrl(url)}');
+        name.href = json.html_url;
+        name.title = json.login;
+        name.innerText = json.login;
 
         let bio = document.createElement('h4');
         if (json.bio != null) {
