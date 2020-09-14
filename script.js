@@ -1,7 +1,6 @@
 let preloader = document.getElementById('preloader');
 
 window.setTimeout(function () {
-    // document.body.classList.add('block');
     preloader.classList.add('none');
     let body = document.body;
     let url = 'https://api.github.com/users/Zhan30';
@@ -33,7 +32,6 @@ window.setTimeout(function () {
                 name.innerHTML = 'Пользователь не найден';
             }
             body.append(name);
-            // name.addEventListener("click", () => window.location = 'https://github.com/?username=${getNameFromUrl(url)}');
             name.href = json.html_url;
             name.title = json.login;
             name.innerText = json.login;
@@ -49,7 +47,6 @@ window.setTimeout(function () {
             bio.classList.add('block');
 
             body.append(date);
-
         })
         .catch(err => alert('Пользователь не найден'));
 }, 3000);
