@@ -3,8 +3,16 @@ let preloader = document.getElementById('preloader');
 window.setTimeout(function () {
     preloader.classList.add('none');
     let body = document.body;
-    let userName = 'Zhan30';
-    let url = 'https://api.github.com/users/' + userName;
+    let getUserName = () =>  {
+        let url_1 = window.location.toString();
+        let user = url_1.split('=');
+        let name = user[1];
+        if (name == undefined) {
+            name = 'Zhan30';
+        } 
+        return name;
+    }
+    let url = `https://api.github.com/users/${getUserName()}`;
     let date = new Date();
     let getDate = new Promise((resolve, reject) => {
     setTimeout(() => date ? resolve(date) : reject("Error date!"), 1500)
@@ -50,4 +58,4 @@ window.setTimeout(function () {
             body.append(date);
         })
         .catch(err => alert('Пользователь не найден'));
-}, 3000);
+}, 5000);
