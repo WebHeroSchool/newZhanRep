@@ -3,7 +3,8 @@ let preloader = document.getElementById('preloader');
 window.setTimeout(function () {
     preloader.classList.add('none');
     let body = document.body;
-    let url = 'https://api.github.com/users/Zhan30';
+    let userName = 'Zhan30';
+    let url = 'https://api.github.com/users/' + userName;
     let date = new Date();
     let getDate = new Promise((resolve, reject) => {
     setTimeout(() => date ? resolve(date) : reject("Error date!"), 1500)
